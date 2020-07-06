@@ -1,0 +1,10 @@
+import pprint
+
+message = 'hello, my name is Craig Spande. I am trying to learn the programming language python. It is difficult'
+count = {}
+
+for character in message:
+    count.setdefault(character, 0)
+    count[character] = count[character] + 1
+
+pprint.pprint(count)
