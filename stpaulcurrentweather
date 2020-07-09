@@ -1,0 +1,12 @@
+#this program will pull the current weather temperature for St. Paul, MN via weather.gov website
+
+import bs4, requests
+def getSTPtemperature(weatherURL):
+  res = requests.get(weatherURL)
+  res.raise_for_status()
+  soup = bs4.BeautifulSoup(res.text, 'html.parser')
+  elems = soup.select('#current_conditions-summary > p.myforecast-current-lrg')
+  return elems[0].text.strip()
+  
+temperature = getSTPtemperature('https://forecast.weather.gov/MapClick.php?lat=44.98192500000005&lon=-93.18661499999996')
+print('The current temperature in St. Paul is ' + temperature)
