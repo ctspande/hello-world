@@ -1,0 +1,8 @@
+import smtplib
+conn = smtplib.SMTP('smtp-mail.outlook.com', 587) #connects to outlook and live email address
+type(conn)
+conn.ehlo() #establishes connection to email server
+conn.starttls() #enables encryption, typically all email servers require encryption
+conn.login('username@live.com', 'password')
+conn.sendmail('from@live.com', 'to@gmail/live/yahoo.com', 'Subject: Hello, long time no see.\n\nBody of email.')
+conn.quit() #closes connection to email server
