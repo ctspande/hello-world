@@ -1,0 +1,19 @@
+pyautogui allows python to control the mouse and keyboard
+
+#here is a simple click and drag drawing in Paint
+
+import pyautogui 
+
+pyautogui.click()
+distance = 200 #amount of pixels to move
+while distance > 0:
+    print(distance, 0)
+    pyautogui.dragRel(distance, 0, duration = 1) #drag mouse right, relative to its starting position
+    distance = distance - 25
+    print(0, distance)
+    pyautogui.dragRel(0, distance, duration = 1) #drag mouse down, relative to its position from above
+    print(-distance, 0)
+    pyautogui.dragRel(-distance, 0, duration = 1) #drag mouse left, relative to its position from above
+    distance = distance - 25
+    print(0, -distance)
+    pyautogui.dragRel(0, -distance, duration = 1) #drag mouse up, relative to its position from above
